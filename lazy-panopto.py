@@ -36,8 +36,6 @@ def ocr(url):
     upload.upload_blob("panopto", "temp.jpg", "temp.jpg")
     return detect.detect_text_uri("gs://panopto/temp.jpg")
 
-@app.route('/translate/<')
-
 if __name__ == "__main__":
     app.run("0.0.0.0",ssl_context='adhoc')
 
