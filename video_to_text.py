@@ -32,18 +32,19 @@ def speech_transcription(input_uri):
     speech_transcription = annotation_results.speech_transcriptions[0]
     alternative = speech_transcription.alternatives[0]
 
-    print('Transcript: {}'.format(alternative.transcript))
-    print('Confidence: {}\n'.format(alternative.confidence))
+    return alternative
+    #print('Transcript: {}'.format(alternative.transcript))
+    #print('Confidence: {}\n'.format(alternative.confidence))
 
-    print('Word level information:')
-    for word_info in alternative.words:
-        word = word_info.word
-        start_time = word_info.start_time
-        end_time = word_info.end_time
-        print('\t{}s - {}s: {}'.format(
-            start_time.seconds + start_time.nanos * 1e-9,
-            end_time.seconds + end_time.nanos * 1e-9,
-            word))
+    # print('Word level information:')
+    # for word_info in alternative.words:
+    #     word = word_info.word
+    #     start_time = word_info.start_time
+    #     end_time = word_info.end_time
+    #     print('\t{}s - {}s: {}'.format(
+    #         start_time.seconds + start_time.nanos * 1e-9,
+    #         end_time.seconds + end_time.nanos * 1e-9,
+    #         word))
 # [END video_speech_transcription_gcs_beta]
 
 
