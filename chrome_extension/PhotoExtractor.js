@@ -8,9 +8,11 @@ window.onload = function() {
     let slides = $('.thumbnail').toArray();
 	var MutationObserver = window.MutationObserver;
 	var list = document.querySelector('#thumbnailList');
+  var lookedAt = false;
   	var observer = new MutationObserver(function(mutations) {  
 		mutations.forEach(function(mutation) {
-			if (mutation.type === 'childList') {
+			if (mutation.type === 'childList' && !lookedAt) {
+        lookedAt = true;
 				var list_values = [].slice.call(list.children)
 					.map( function(node) { return $(node).find('img:first').attr('src');
 				});
@@ -22,7 +24,7 @@ window.onload = function() {
 					const url = "https://d2y36twrtb17ty.cloudfront.net/sessions/" +
 						sessionPID + '/' + eventPID + '_et/thumbs/slide' + (i + 1) + '.jpg';
 						console.log(url);
-					$.get("https://10.19.213.54:5000/upload/" + url, function(data, status){
+					$.get("https://127.0.0.1:5000/upload/" + url, function(data, status){
 						// console.log(data);
 					});
 				}
